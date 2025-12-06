@@ -1,6 +1,5 @@
 import { FiSearch } from 'react-icons/fi';
 import toast from 'react-hot-toast';
-
 import style from './Form.module.css';
 
 interface FormProps {
@@ -8,12 +7,13 @@ interface FormProps {
 }
 
 export default function Form({ onSubmit }: FormProps) {
-  const handleSubmit = (formData: FormData): void => {
+  const handleSubmit = (formData: FormData) => {
     const query = formData.get('search') as string;
     if (!query.trim()) {
       toast.error('Enter search query');
       return;
     }
+
     onSubmit(query.trim());
   };
 

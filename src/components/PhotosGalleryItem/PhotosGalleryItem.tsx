@@ -5,12 +5,17 @@ import styles from './PhotosGalleryItem.module.css';
 
 interface PhotosGalleryItemProps {
   photo: Photo;
+  onSelect: (photo: Photo | null) => void;
 }
 
-export default function PhotosGalleryItem({ photo }: PhotosGalleryItemProps) {
+export default function PhotosGalleryItem({
+  photo,
+  onSelect,
+}: PhotosGalleryItemProps) {
   return (
     <GridItem>
       <div
+        onClick={() => onSelect(photo)}
         className={styles.thumb}
         style={{
           backgroundColor: photo.avg_color,
